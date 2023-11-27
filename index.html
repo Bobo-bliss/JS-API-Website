@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Pokemon Forever</title>
+</head>
+<body>
+  
+  <div class="header">
+    <h1>Pokemon Forever</h1>
+  </div>
+
+  <div class="sum-data">
+    <span>In this collection there are</span>
+    <div class="poke-elm-ctn"></div>
+    <div class="add-msg">Click a card to add it to your favorites</div>
+  </div>
+
+  <div class="btn-ctn">
+    <button type="button" id="coll-btn" class="coll-fav-btn">Collection</button>
+    <div class="sort-btn-ctn">
+      <span>Sort Pokemon</span>
+      <div class="sort-btns">
+        <button type="button" class="sort-btn" data-sortdir="asc">A-Z</button>
+        <button type="button" class="sort-btn" data-sortdir="desc">Z-A</button>
+      </div>
+    </div>
+    <button type="button" id="favs-btn" class="coll-fav-btn">Favorites</button>
+  </div>
+
+  <div id="coll-ctn" class="poke-cards-ctn"></div>
+  <div id="favs-ctn" class="poke-cards-ctn hidden"></div>
+
+
+
+
+  <script src="./main.js"></script>
+</body>
+</html>

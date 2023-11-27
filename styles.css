@@ -1,0 +1,157 @@
+body {
+  width: 100%;
+  background-image: url(./QW4ZNB.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h1 {
+  text-align: center;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+  font-size: 5rem;
+  background-color: cadetblue;
+  border-radius: 50px;
+  line-height: 1;
+}
+
+.sum-data {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.sum-data span {
+  background-color: mistyrose;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.poke-elm-ctn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem auto 0;
+  width: 90%;
+  background-color: #af5;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.add-msg {
+  margin: 1rem auto 0;
+  background-color: #ff5;
+  width: 42%;
+  border-radius: 20px;
+}
+
+.btn-ctn {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2rem;
+}
+
+.coll-fav-btn {
+  padding: 1rem;
+  background-color: blanchedalmond;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.coll-fav-btn:hover {
+  background-color: lightgray;
+}
+
+.sort-btn-ctn {
+  display: inline;
+  background-color: lightgray;
+  padding: 1rem;
+  border: 1px solid black;
+}
+
+.sort-btns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sort-btn {
+  cursor: pointer;
+}
+
+.poke-cards-ctn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#coll-ctn div,
+#favs-ctn div {
+  margin: 0 0.5rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0rem 1rem;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+#coll-ctn div:hover,
+#favs-ctn div:hover {
+  background-color: lightgoldenrodyellow;
+}
+
+#coll-ctn div {
+  border: 10px solid #ffe165;
+}
+
+#favs-ctn div {
+  border: 10px solid #f34242;
+}
+
+.poke-cards-ctn h2 {
+  margin: 0.5rem;
+}
+
+.poke-cards-ctn img {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 10rem;
+}
+
+@media (max-width: 425px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .add-msg {
+    width: 80%;
+  }
+
+  .btn-ctn {
+    flex-direction: column;
+  }
+
+  #favs-btn {
+    order: 1;
+  }
+
+  .sort-btn-ctn {
+    order: 2;
+  }
+}
