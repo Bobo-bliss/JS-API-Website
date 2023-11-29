@@ -195,15 +195,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   //Make the Collection/Favorites buttons clickable
   collFavBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      if (btn.id === "favs-btn") {
-        favsContainer.classList.remove("hidden");
-        collContainer.classList.add("hidden");
-      } else {
-        collContainer.classList.remove("hidden");
-        favsContainer.classList.add("hidden");
-      }
+      const params =
+        btn.id === "favs-btn"
+          ? [favsContainer, collContainer]
+          : [collContainer, favsContainer];
+      params[0].classList.remove("hidden");
+      params[1].classList.add("hidden");
     });
   });
 }); //End of DOMContentLoaded
-
-//Programmatically add the pokemon element type data to HTML
