@@ -144,15 +144,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sortPokemon = (sortDir) => {
     const pokemonCardsColl = Array.from(collCards);
     const pokemonCardsFav = Array.from(favCards);
-    if (sortDir === "asc") {
-      pokemonCardsColl.sort((a, b) => a.id.localeCompare(b.id));
-      pokemonCardsFav.sort((a, b) => a.id.localeCompare(b.id));
-    } else {
-      pokemonCardsColl.sort((a, b) => b.id.localeCompare(a.id));
-      pokemonCardsFav.sort((a, b) => b.id.localeCompare(a.id));
-    }
-    pokemonCardsColl.forEach((card) => collContainer.appendChild(card));
-    pokemonCardsFav.forEach((card) => favsContainer.appendChild(card));
+
+    [pokemonCardsColl, pokemonCardsFav].forEach((item) => {
+      item.sort((a, b) => {
+        const params = sortDir === "asc" ? [a, b] : [b, a];
+        return params[0].id.localeCompare(params[1].id);
+      });
+    });
+
+    [
+      [pokemonCardsColl, collContainer],
+      [pokemonCardsFav, favsContainer],
+    ].forEach((item) => {
+      item[0].forEach((card) => item[1].appendChild(card));
+    });
   };
 
   sortBtns.forEach((btn) => {
@@ -166,13 +171,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   const moveCards = (cardId, direction) => {
     const card = document.getElementById(cardId);
 
-    if (direction === "toFavs") {
-      card.classList.replace("poke-card-coll", "poke-card-fav");
-      favsContainer.appendChild(card);
-    } else if (direction === "toColl") {
-      card.classList.replace("poke-card-fav", "poke-card-coll");
-      collContainer.appendChild(card);
-    }
+    const sourceClass =
+      direction === "toFavs" ? "poke-card-coll" : "poke-card-fav";
+    const targetClass =
+      direction === "toFavs" ? "poke-card-fav" : "poke-card-coll";
+    const targetContainer =
+      direction === "toFavs" ? favsContainer : collContainer;
+
+    card.classList.replace(sourceClass, targetClass);
+    targetContainer.appendChild(card);
+
     collCards = document.querySelectorAll(".poke-card-coll");
     favCards = document.querySelectorAll(".poke-card-fav");
   };
